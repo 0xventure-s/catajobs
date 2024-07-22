@@ -18,7 +18,7 @@ datasource db {
 model Job {
   id               Int      @id @default(autoincrement())
   slug             String   @unique
-  tittle           String
+  title           String
   type             String
   locationType     String
   location         String?
