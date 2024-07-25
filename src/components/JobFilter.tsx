@@ -5,11 +5,24 @@ import Select from "./ui/select";
 import { jobTypes } from "@/lib/jov-types";
 import { Button } from "./ui/button";
 import { log } from "console";
+import { jobFilterSchema } from "@/lib/validation";
+import { redirect } from "next/navigation";
 
 async function filterJobs(formData: FormData) {
   "use server";
 
-  console.log(formData.get("q") as String)
+  const values = Object.fromEntries(formData.entries());
+
+  const { q, type, location, remote } = jobFilterSchema.parse(values);
+
+  const serParams = new URLSearchParams({
+    ...(q && { q: q.trim() }),
+    ...(type && { type }),
+    ...(location && { location }),
+    ...(remote && { remote: "true" }),
+  });
+
+  redirect(`/?${serParams.toString()}`)
 }
 
 export default async function JobFilter() {
@@ -56,10 +69,18 @@ export default async function JobFilter() {
             </Select>
           </div>
           <div className="flex items-center gap-2">
-              <input id="remote" name="remote" type="checkbox" className="scale-125 accent-blue-500" />
-              <Label>Trabajos Remotos</Label>
+            <input
+              id="remote"
+              name="remote"
+              type="checkbox"
+              className="scale-125 accent-blue-500"
+            />
+            <Label>Trabajos Remotos</Label>
           </div>
-          <Button type="submit" className="w-full bg-blue-500" > Filtrar</Button>
+          <Button type="submit" className="w-full bg-blue-500">
+            {" "}
+            Filtrar
+          </Button>
         </div>
       </form>
     </div>
