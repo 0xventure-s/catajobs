@@ -16,7 +16,7 @@ export default async function Home() {
         </h1>
         <p className="text-muted-foreground"> Los mejores empleos de Catamarca City</p>
       </div>
-      <section className="flex flex-col md:flex-row  ">
+      <section className="flex flex-col md:flex-row gap-5">
         <JobFilter/>
         <div className=" grow space-y-4">
           {jobs.map((job) => (

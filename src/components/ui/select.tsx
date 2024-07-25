@@ -1,7 +1,8 @@
 import { cn } from "@/lib/utils";
 import { ChevronDown } from "lucide-react";
+import { forwardRef } from "react";
 
-export default function Select({className,...props}: React.HTMLProps<HTMLSelectElement>) {
+export default forwardRef<HTMLSelectElement,React.HTMLProps<HTMLSelectElement>>( function Select({className,...props},ref ) {
   return (
     <div className="relative">
     <select
@@ -9,6 +10,7 @@ export default function Select({className,...props}: React.HTMLProps<HTMLSelectE
         "h-10 w-full border rounded-md appearance-none truncate bg-background border-input py-2 pl-3 pr-8 text-sm ring-offset-background focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
         className,
       )}
+      ref={ref}
       {...props}
     />
 
@@ -18,4 +20,4 @@ export default function Select({className,...props}: React.HTMLProps<HTMLSelectE
 
     </div>
   );
-}
+})
