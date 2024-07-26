@@ -5,7 +5,7 @@ import Select from "./ui/select";
 import { jobTypes } from "@/lib/jov-types";
 import { Button } from "./ui/button";
 import { log } from "console";
-import { jobFilterSchema } from "@/lib/validation";
+import { jobFilterSchema, jobFilterValue } from "@/lib/validation";
 import { redirect } from "next/navigation";
 
 async function filterJobs(formData: FormData) {
@@ -25,7 +25,15 @@ async function filterJobs(formData: FormData) {
   redirect(`/?${serParams.toString()}`)
 }
 
-export default async function JobFilter() {
+
+type JobFilterProps = {
+    defaultValue: jobFilterValue,
+
+}
+ 
+//2:16 https://youtu.be/XD5FpbVpWzk?t=8208
+
+export default async function JobFilter({defaultValue}:JobFilterProps) {
   const distinctLocation = (await prisma.job
     .findMany({
       where: { approved: true },
@@ -42,12 +50,12 @@ export default async function JobFilter() {
         <div className="space-y-4">
           <div className="flex flex-col gap-2">
             <Label htmlFor="q"> Buscar</Label>
-            <Input id="q" name="q" placeholder="Titulo,empresa,etc" />
+            <Input id="q" name="q" placeholder="Titulo,empresa,etc" defaultValue={defaultValue.q || ""} />
           </div>
 
           <div className="flex flex-col gap-2">
             <Label htmlFor="type">Tipo</Label>
-            <Select id="type" name="type" defaultValue="">
+            <Select id="type" name="type" defaultValue={defaultValue.type || ""}>
               {" "}
               <option value="">Todos los tipos</option>{" "}
               {jobTypes.map((type) => (
@@ -59,7 +67,7 @@ export default async function JobFilter() {
           </div>
           <div className="flex flex-col gap-2">
             <Label htmlFor="location"> Ubicacion</Label>
-            <Select id="location" name="location" defaultValue="">
+            <Select id="location" name="location" defaultValue={defaultValue.location || ""}>
               <option value="">Toda Catamarca</option>
               {distinctLocation.map((location) => (
                 <option value={location} key={location}>
@@ -74,6 +82,7 @@ export default async function JobFilter() {
               name="remote"
               type="checkbox"
               className="scale-125 accent-blue-500"
+              defaultChecked={defaultValue.remote}
             />
             <Label>Trabajos Remotos</Label>
           </div>
