@@ -7,6 +7,7 @@ import { Button } from "./ui/button";
 import { log } from "console";
 import { jobFilterSchema, jobFilterValue } from "@/lib/validation";
 import { redirect } from "next/navigation";
+import FormSubmitBtn from "./FormSubmitBtn";
 
 async function filterJobs(formData: FormData) {
   "use server";
@@ -77,19 +78,15 @@ export default async function JobFilter({defaultValue}:JobFilterProps) {
             </Select>
           </div>
           <div className="flex items-center gap-2">
-            <input
-              id="remote"
-              name="remote"
-              type="checkbox"
-              className="scale-125 accent-blue-500"
-              defaultChecked={defaultValue.remote}
-            />
-            <Label>Trabajos Remotos</Label>
+  
           </div>
-          <Button type="submit" className="w-full bg-blue-500">
-            {" "}
+          <div>
+          <FormSubmitBtn  className="w-full bg-blue-500">
             Filtrar
-          </Button>
+          </FormSubmitBtn>
+          
+          <p className="text-center text-xs text-gray-500 mt-2">Toca para actualizar</p>
+        </div>
         </div>
       </form>
     </div>
