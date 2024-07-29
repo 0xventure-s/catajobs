@@ -71,4 +71,3 @@ export const jobFilterSchema = z.object({
 });
 
 export type jobFilterValue = z.infer<typeof jobFilterSchema>;
-#
