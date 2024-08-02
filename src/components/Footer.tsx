@@ -27,8 +27,8 @@ export default function Footer() {
             </Link>
           </div>
         </div>
-        <div className="text-center text-sm text-muted-foreground">
-          © {new Date().getFullYear()} Hecho por NoaTech
+        <div className="text-center text-sm text-muted-foreground flex items-center">
+          © {new Date().getFullYear()} Hecho con <div><HeartIcon className="h-4 text-red-600"/></div>
         </div>
       </div>
     </footer>

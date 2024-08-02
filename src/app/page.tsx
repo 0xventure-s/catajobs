@@ -3,6 +3,8 @@ import JobResults from "@/components/JobResults";
 import H1 from "@/components/ui/h1";
 import { jobFilterValue } from "@/lib/validation";
 import { Metadata } from "next";
+import { format } from 'date-fns';
+import { es } from 'date-fns/locale';
 
 type PageProps = {
   searchParams?: {
@@ -35,6 +37,10 @@ function getTitle({ q, type, location, remote }: jobFilterValue) {
   return titleParts.join(" ");
 }
 
+function getCurrentDate() {
+  return format(new Date(), "d 'de' MMMM, yyyy", { locale: es });
+}
+
 export default async function Home({ searchParams = {} }: PageProps) {
   const { q, type, location, remote } = searchParams;
 
@@ -52,6 +58,15 @@ export default async function Home({ searchParams = {} }: PageProps) {
         <p className="text-muted-foreground">
           Los mejores empleos de Catamarca City
         </p>
+        <div className="flex justify-center items-center space-x-2">
+          <span className="relative flex h-3 w-3">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+          </span>
+          <p className="text-sm text-green-600 font-medium">
+            Actualizado al {getCurrentDate()}
+          </p>
+        </div>
       </div>
       <section className="flex flex-col md:flex-row gap-5">
         <JobFilter defaultValue={filterValues} />

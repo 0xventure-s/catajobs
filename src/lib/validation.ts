@@ -48,7 +48,7 @@ const locationSchema = z
 
 export const createJobsSchema = z
   .object({
-    tittle: requieredString.max(100),
+    tittle: requieredString.max(100, "Tan largo va a ser el titulo?"),
     type: requieredString.refine(
       (value) => jobTypes.includes(value),
       "Tipo de trabajo invalido",
