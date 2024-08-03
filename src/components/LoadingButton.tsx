@@ -11,7 +11,7 @@ export default function LoadingButton({
     ...props
 }: LoadingButtonProps) {
 
-return (<Button className="bg-blue-500" {...props} disabled={props.disabled || loading } >
+return (<Button className="bg-blue-500 hover:to-blue-900" {...props} disabled={props.disabled || loading } >
 
 <span className="flex items-center justify-center gap-1">
     {loading && <Loader2 size={16} className="animate-spin" />}

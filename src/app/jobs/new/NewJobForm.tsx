@@ -22,6 +22,7 @@ import { Label } from "@/components/ui/label";
 import RichEditor from "@/components/RichEditor";
 import { draftToMarkdown } from "markdown-draft-js";
 import LoadingButton from "@/components/LoadingButton";
+import { createJobPosting } from "./actions";
 
 export default function NewJobForm() {
   const form = useForm<CreateJobValues>({
@@ -39,7 +40,19 @@ export default function NewJobForm() {
   } = form;
 
   async function onSubmit(values: CreateJobValues) {
-    alert(JSON.stringify(values, null, 2));
+    const formData = new FormData()
+
+    Object.entries(values).forEach(([key,value]) => {
+      if(value) {
+        formData.append(key, value)
+      }
+    })
+
+    try {
+      await createJobPosting(formData)
+    } catch (error) {
+      alert("Algo salio mal nene")
+    }
   }
 
   return (
@@ -228,7 +241,7 @@ export default function NewJobForm() {
                           
                           <Input
                             placeholder="Número de Teléfono"
-                            type="tel"
+                            type="text"
                             {...field}
                           />
                           <span className="mx-2">o</span>
@@ -249,7 +262,7 @@ export default function NewJobForm() {
                          
                           <Input
                             id="applicationEmail" 
-                            placeholder="Email o URL"
+                            placeholder="Email o Ubicacion del Local"
                             type="text"
                             {...field}
                             onChange={e => {

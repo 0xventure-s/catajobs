@@ -20,8 +20,8 @@ const companyLogoSchema = z
 
 const aplicationShema = z
   .object({
-    applicationEmail: z.string().max(100).email().optional().or(z.literal("")),
-    applicationUrl: z.string().max(100).email().optional().or(z.literal("")),
+    applicationEmail: z.string().max(100).optional().or(z.literal("")),
+    applicationUrl: z.string().max(100).optional().or(z.literal("")),
   })
   .refine((data) => data.applicationEmail || data.applicationUrl, {
     message: "Un Email o un Numero es necesario",

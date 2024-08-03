@@ -21,7 +21,7 @@ export default function JobList({
   },
 }: JobListProp) {
   return (
-    <article className="flex gap- border rounded-lg p-5 hover:bg-muted/60">
+    <article className="flex gap-4 border rounded-lg p-5 hover:bg-muted/60">
       <Image
         src={companyLogoUrl || companyLogoPlaceHolder}
         alt={`${companyName} logo`}
