@@ -12,6 +12,7 @@ type PageProps = {
     type?: string;
     location?: string;
     remote?: string;
+    page?: string;
   };
 };
 
@@ -42,7 +43,7 @@ function getCurrentDate() {
 }
 
 export default async function Home({ searchParams = {} }: PageProps) {
-  const { q, type, location, remote } = searchParams;
+  const { q, type, location, remote,page } = searchParams;
 
   const filterValues: jobFilterValue = {
     q: q || undefined,
@@ -70,7 +71,7 @@ export default async function Home({ searchParams = {} }: PageProps) {
       </div>
       <section className="flex flex-col md:flex-row gap-5">
         <JobFilter defaultValue={filterValues} />
-        <JobResults filterValues={filterValues} />
+        <JobResults filterValues={filterValues} page={page ? parseInt(page) : undefined} />
       </section>
     </main>
   );

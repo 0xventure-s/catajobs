@@ -52,7 +52,7 @@ export async function createJobPosting(formData: FormData) {
       applicationEmail: applicationEmail?.trim(),
       applicationUrl: applicationUrl?.trim(),
       description: description?.trim(),
-      approved: true
+     
     },
   });
 

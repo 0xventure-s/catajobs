@@ -14,7 +14,7 @@ export default function JobList({
     companyName,
     type,
     locationType,
-    location,
+    location : JobLocation,
     salary,
     companyLogoUrl,
     createdAt,
@@ -47,7 +47,7 @@ export default function JobList({
 
           <p className="flex items-center gap-1.5 ">
             <Globe2 size={16} className="shrink-0" />
-            {location || "Catamarca"}
+            {JobLocation || "Catamarca"}
           </p>
 
           <p className="flex items-center gap-1.5 sm:hidden ">

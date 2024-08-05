@@ -1,5 +1,8 @@
 import { type ClassValue, clsx } from "clsx"
+import { User } from "@clerk/nextjs/server";
+
 import { twMerge } from "tailwind-merge"
+import { UserResource } from "@clerk/types";
 import { formatDistanceToNowStrict } from "date-fns"
 import { es } from 'date-fns/locale';
 
@@ -14,4 +17,8 @@ export function relativeDate(from: Date) {
 
 export function toSlug(str:string){
   return str.toLocaleLowerCase().replace(/ /g, "-") .replace(/[^\w-]+/g, "");
+}
+
+export function isAdmin(user: UserResource | User) {
+  return user.publicMetadata?.role === "admin";
 }

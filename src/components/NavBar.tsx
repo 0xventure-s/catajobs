@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import logo from "@/assets/logo.png"
 import { Button } from "./ui/button";
-import { ArrowUpFromLine, Heart, Users, Menu } from "lucide-react";
+import { ArrowUpFromLine, Heart, Users, Menu, X } from "lucide-react";
 
 export default function NavBar() {
   const [activeUsers, setActiveUsers] = useState(100);
@@ -23,7 +23,7 @@ export default function NavBar() {
       <nav className="max-w-5xl m-auto px-3 py-5">
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3">
-            <Image src={logo} width={40} height={40} alt="Job Imagen"/>
+            <Image src={logo} width={40} height={40} className='rounded-md' quality={100} alt="Job Imagen"/>
             <span className="text-xl font-bold tracking-tight">Cata Jobs</span>
           </Link>
           <div className="hidden md:flex items-center gap-6">
@@ -48,10 +48,11 @@ export default function NavBar() {
             </div>
           </div>
           <button 
-            className="md:hidden"
+            className={`md:hidden p-2 rounded-full transition-colors ${isMenuOpen ? 'bg-gray-200' : ''}`}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label={isMenuOpen ? "Cerrar menú" : "Abrir menú"}
           >
-            <Menu size={24} />
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
         {isMenuOpen && (
