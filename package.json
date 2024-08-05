@@ -7,7 +7,6 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "seed": "node scripts/seed.js",
      "postinstall": "npx prisma generate"
   },
   "dependencies": {
