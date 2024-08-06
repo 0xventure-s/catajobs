@@ -12,7 +12,7 @@ export default function NavBar() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setActiveUsers(Math.floor(Math.random() * (500 - 100 + 1) + 99));
+      setActiveUsers(Math.floor(Math.random() * (200 - 100 + 1) + 99));
     }, 180000); // Actualiza cada 3 minutos
   
     // No olvides limpiar el intervalo
