@@ -58,7 +58,7 @@ export default function NewJobForm() {
   return (
     <main className="max-w-3xl m-auto my-10 space-y-10">
       <div className="space-y-5 text-center">
-        <H1>Encontrá a tu empleado ideal</H1>
+        <H1>Crea un puesto de trabajo</H1>
         <p className="text-muted-foreground">
           Crea un trabajo GRATIS para que miles de personas lo puedan ver
         </p>
