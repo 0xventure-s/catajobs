@@ -9,14 +9,14 @@ export default function Footer() {
           <div className="space-y-2">
             <h3 className="text-xl font-semibold">Cata Jobs</h3>
             <p className="text-sm text-muted-foreground">
-             Conectandote con los mejores empleos de Catamarca
+            Conectándote con los mejores empleos de Catamarca.
             </p>
           </div>
           <div className="flex flex-wrap gap-5 text-sm text-muted-foreground">
             <Link href="/about" className="hover:underline">
               
             </Link>
-            <Link href="/contact" className="hover:underline">
+            <Link href="wa.me/+543834293512" className="hover:underline">
               Contacto
             </Link>
             <Link href="/terms" className="hover:underline">
