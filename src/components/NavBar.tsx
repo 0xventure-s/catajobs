@@ -7,13 +7,13 @@ import { Button } from "./ui/button";
 import { ArrowUpFromLine, Heart, Users, Menu, X } from "lucide-react";
 
 export default function NavBar() {
-  const [activeUsers, setActiveUsers] = useState(100);
+  const [activeUsers, setActiveUsers] = useState((Math.floor(Math.random() * (200 - 100 + 1) + 99)));
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveUsers(Math.floor(Math.random() * (200 - 100 + 1) + 99));
-    }, 180000); // Actualiza cada 3 minutos
+    }, 9000); // Actualiza cada 3 minutos
   
     // No olvides limpiar el intervalo
     return () => clearInterval(interval);
