@@ -1,3 +1,4 @@
+import AdvertisingBanner from "@/components/AdvertisingBanner";
 import JobFilter from "@/components/JobFilter";
 import JobResults from "@/components/JobResults";
 import H1 from "@/components/ui/h1";
@@ -69,10 +70,12 @@ export default async function Home({ searchParams = {} }: PageProps) {
           </p>
         </div>
       </div>
+      <AdvertisingBanner variant="hero" />
       <section className="flex flex-col md:flex-row gap-5">
         <JobFilter defaultValue={filterValues} />
         <JobResults filterValues={filterValues} page={page ? parseInt(page) : undefined} />
       </section>
+      <AdvertisingBanner variant="inline" />
     </main>
   );
 }

@@ -12,15 +12,18 @@ export default function Footer() {
             Conectándote con los mejores empleos de Catamarca.
             </p>
           </div>
-          <div className="flex flex-wrap gap-5 text-sm text-muted-foreground">
-            <Link href="/about" className="hover:underline">
-              
+        <div className="flex flex-wrap gap-5 text-sm text-muted-foreground">
+            <Link href="/publicidad" className="hover:underline">
+              Publicidad
             </Link>
-            <Link href="https://wa.me/+543834293512" legacyBehavior>
-  <a className="hover:underline" target="_blank" rel="noopener noreferrer">
-    Contacto
-  </a>
-</Link>
+            <Link
+              href="https://wa.me/543834293512"
+              className="hover:underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Contacto
+            </Link>
             <Link href="/terms" className="hover:underline">
               Terminos y Condiciones
             </Link>

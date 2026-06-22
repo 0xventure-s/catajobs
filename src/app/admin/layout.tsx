@@ -1,29 +1,17 @@
-import {
-    ClerkProvider,
-    SignInButton,
-    SignedIn,
-    SignedOut,
-    UserButton
-  } from '@clerk/nextjs'
+import AdminNavbar from "@/app/admin/AdminNavbar";
+import { requireAdminSession } from "@/lib/admin";
 
-  export default function RootLayout({
-    children,
-  }: {
-    children: React.ReactNode
-  }) {
-    return (
-      <ClerkProvider>
-        <html lang="en">
-          <body>
-            <SignedOut>
-              <SignInButton />
-            </SignedOut>
-            <SignedIn>
-              <UserButton />
-            </SignedIn>
-            {children}
-          </body>
-        </html>
-      </ClerkProvider>
-    )
-  }
+export default async function AdminLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  const session = await requireAdminSession();
+
+  return (
+    <div className="space-y-6 py-6">
+      <AdminNavbar email={session.user?.email} />
+      {children}
+    </div>
+  );
+}

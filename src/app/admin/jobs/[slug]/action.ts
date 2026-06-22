@@ -1,8 +1,8 @@
 "use server";
 
+import { auth } from "@/auth";
+import { isAdminSession } from "@/lib/admin";
 import prisma from "@/lib/prisma";
-import { isAdmin } from "@/lib/utils";
-import { currentUser } from "@clerk/nextjs/server";
 import { del } from "@vercel/blob";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
@@ -16,9 +16,9 @@ export async function approveSubmission(
   try {
     const jobId = parseInt(formData.get("jobId") as string);
 
-    const user = await currentUser();
+    const session = await auth();
 
-    if (!user || !isAdmin(user)) {
+    if (!isAdminSession(session)) {
       throw new Error("Not authorized");
     }
 
@@ -41,9 +41,9 @@ export async function deleteJob(prevState: FormState, formData: FormData) {
   try {
     const jobId = parseInt(formData.get("jobId") as string);
 
-    const user = await currentUser();
+    const session = await auth();
 
-    if (!user || !isAdmin(user)) {
+    if (!isAdminSession(session)) {
       throw new Error("Not authorized");
     }
 
