@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" role="img" aria-labelledby="title desc">
+  <title id="title">SERMICAT</title>
+  <desc id="desc">Logo tipografico para SERMICAT.</desc>
+  <rect width="320" height="320" rx="36" fill="#101010"/>
+  <path d="M160 66l54 28h-108z" fill="#169b62"/>
+  <rect x="64" y="102" width="192" height="62" rx="12" fill="#169b62"/>
+  <text x="160" y="146" text-anchor="middle" font-family="Arial, sans-serif" font-size="40" font-weight="700" fill="#f4d03f">SERMICAT</text>
+  <text x="160" y="210" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" fill="#ffffff">Catamarca</text>
+</svg>

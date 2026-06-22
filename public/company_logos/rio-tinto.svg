@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" role="img" aria-labelledby="title desc">
+  <title id="title">Rio Tinto</title>
+  <desc id="desc">Logo tipografico para Rio Tinto.</desc>
+  <rect width="320" height="320" rx="36" fill="#d3222a"/>
+  <text x="160" y="148" text-anchor="middle" font-family="Arial, sans-serif" font-size="54" font-weight="700" fill="#ffffff">Rio Tinto</text>
+  <text x="160" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#ffd8d9">Catamarca</text>
+</svg>

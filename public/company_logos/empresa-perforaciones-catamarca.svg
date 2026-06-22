@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" role="img" aria-labelledby="title desc">
+  <title id="title">Empresa de Perforaciones de Catamarca</title>
+  <desc id="desc">Logo tipografico para Empresa de Perforaciones de Catamarca.</desc>
+  <rect width="320" height="320" rx="36" fill="#4c3f72"/>
+  <circle cx="160" cy="110" r="62" fill="#f2c94c" opacity="0.92"/>
+  <path d="M160 58v104" stroke="#4c3f72" stroke-width="16" stroke-linecap="round"/>
+  <path d="M132 106h56" stroke="#4c3f72" stroke-width="12" stroke-linecap="round"/>
+  <path d="M142 138h36" stroke="#4c3f72" stroke-width="12" stroke-linecap="round"/>
+  <text x="160" y="228" text-anchor="middle" font-family="Arial, sans-serif" font-size="40" font-weight="700" fill="#ffffff">EPC</text>
+  <text x="160" y="262" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#d9d2eb">Perforaciones Catamarca</text>
+</svg>

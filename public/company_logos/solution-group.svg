@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" role="img" aria-labelledby="title desc">
+  <title id="title">Solution Group SAS</title>
+  <desc id="desc">Logo tipografico para Solution Group SAS.</desc>
+  <rect width="320" height="320" rx="36" fill="#ffffff"/>
+  <path d="M78 68c30-18 68-14 92 10-14 14-22 22-36 36-18-14-38-16-56-4z" fill="#7ebc2d"/>
+  <path d="M88 170c28 22 66 20 92-6-14-14-22-22-36-36-18 18-38 22-56 14z" fill="#1d5fbf"/>
+  <text x="170" y="134" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#1d5fbf">Solution</text>
+  <text x="170" y="172" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#7ebc2d">Group</text>
+  <text x="170" y="204" font-family="Arial, sans-serif" font-size="18" fill="#374151">SAS</text>
+</svg>

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" role="img" aria-labelledby="title desc">
+  <title id="title">Finding CAT</title>
+  <desc id="desc">Logo tipografico para Finding CAT.</desc>
+  <rect width="320" height="320" rx="36" fill="#0c1b2e"/>
+  <rect x="44" y="92" width="148" height="72" fill="#fbbf24"/>
+  <rect x="192" y="92" width="84" height="72" fill="#111111"/>
+  <text x="118" y="140" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#111111">FINDING</text>
+  <text x="234" y="140" text-anchor="middle" font-family="Arial, sans-serif" font-size="36" font-weight="700" fill="#ffffff">CAT</text>
+  <text x="160" y="224" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" fill="#fbbf24">Belen, Catamarca</text>
+</svg>

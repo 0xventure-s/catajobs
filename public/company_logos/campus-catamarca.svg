@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" role="img" aria-labelledby="title desc">
+  <title id="title">Campus de Entrenamiento Laboral Catamarca</title>
+  <desc id="desc">Logo tipografico para Campus de Entrenamiento Laboral Catamarca.</desc>
+  <rect width="320" height="320" rx="36" fill="#ffffff"/>
+  <circle cx="90" cy="110" r="58" fill="#f5a623"/>
+  <circle cx="90" cy="110" r="32" fill="#ffffff"/>
+  <circle cx="90" cy="110" r="16" fill="#1f3c88"/>
+  <path d="M90 52a58 58 0 0 1 48 26" fill="none" stroke="#1f3c88" stroke-width="10" stroke-linecap="round"/>
+  <text x="160" y="118" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#1f3c88">Campus</text>
+  <text x="160" y="156" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#f5a623">Entrenamiento</text>
+  <text x="160" y="186" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#f5a623">Laboral</text>
+  <text x="160" y="228" font-family="Arial, sans-serif" font-size="18" fill="#1f3c88">Catamarca</text>
+</svg>

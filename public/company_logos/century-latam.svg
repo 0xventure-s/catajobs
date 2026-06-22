@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" role="img" aria-labelledby="title desc">
+  <title id="title">Century LATAM</title>
+  <desc id="desc">Logo tipografico para Century LATAM.</desc>
+  <rect width="320" height="320" rx="36" fill="#ffffff"/>
+  <circle cx="96" cy="116" r="46" fill="#254fba"/>
+  <path d="M72 116c18-30 54-30 72 0" fill="none" stroke="#ffffff" stroke-width="10" stroke-linecap="round"/>
+  <text x="160" y="126" font-family="Arial, sans-serif" font-size="40" font-weight="700" fill="#254fba">Century</text>
+  <text x="160" y="164" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#6b7280">LATAM</text>
+</svg>

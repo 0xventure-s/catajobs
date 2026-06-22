@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" role="img" aria-labelledby="title desc">
+  <title id="title">POSCO Argentina</title>
+  <desc id="desc">Logo tipografico para POSCO Argentina.</desc>
+  <rect width="320" height="320" rx="36" fill="#ffffff"/>
+  <text x="160" y="148" text-anchor="middle" font-family="Arial, sans-serif" font-size="62" font-weight="700" fill="#0a74b8">POSCO</text>
+  <text x="160" y="194" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#1e5f94">ARGENTINA</text>
+  <path d="M56 232h208" stroke="#d8e9f7" stroke-width="10" stroke-linecap="round"/>
+</svg>
