@@ -1,9 +1,25 @@
-import H1 from "@/components/ui/h1";
+import PageFeedback from "@/components/PageFeedback";
+import { Button } from "@/components/ui/button";
+import { SearchX } from "lucide-react";
+import Link from "next/link";
 
-export default function NotFund () {
-    return <main className="max-w-5xl m-auto space-y-5 px-3 text-center">
-        <H1>No se encontro la pagina</H1>
-        <p>No encontramos la pagina. Revisa el link</p>
-
-    </main>
+export default function NotFound() {
+  return (
+    <PageFeedback
+      badge="Página no disponible"
+      title="Ese enlace ya no está activo"
+      description="Revisá la dirección o seguí explorando las búsquedas publicadas en Catamarca."
+      supportText="A veces un aviso cambia de ubicación o deja de estar visible."
+      icon={<SearchX className="h-7 w-7" />}
+      actions={
+        <Button
+          asChild
+          size="lg"
+          className="w-full bg-sky-600 hover:bg-sky-700 sm:w-auto"
+        >
+          <Link href="/">Ver empleos</Link>
+        </Button>
+      }
+    />
+  );
 }
