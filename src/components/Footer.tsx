@@ -9,10 +9,13 @@ export default function Footer() {
           <div className="space-y-2">
             <h3 className="text-xl font-semibold">Cata Jobs</h3>
             <p className="text-sm text-muted-foreground">
-            Conectándote con los mejores empleos de Catamarca.
+              Empleos, CV y formación para crecer en Catamarca.
             </p>
           </div>
-        <div className="flex flex-wrap gap-5 text-sm text-muted-foreground">
+          <div className="flex flex-wrap gap-5 text-sm text-muted-foreground">
+            <Link href="/formarme" className="hover:underline">
+              Formarme
+            </Link>
             <Link href="/publicidad" className="hover:underline">
               Publicidad
             </Link>
@@ -25,15 +28,16 @@ export default function Footer() {
               Contacto
             </Link>
             <Link href="/terms" className="hover:underline">
-              Terminos y Condiciones
+              Términos y condiciones
             </Link>
             <Link href="/privacy" className="hover:underline">
-              Politica de privacidad
+              Política de privacidad
             </Link>
           </div>
         </div>
-        <div className="text-center text-sm text-muted-foreground flex items-center">
-          © {new Date().getFullYear()} Hecho con <div><HeartIcon className="h-4 text-red-600"/></div>
+        <div className="flex items-center gap-1 text-center text-sm text-muted-foreground">
+          © {new Date().getFullYear()} Cata Jobs. Hecho con
+          <HeartIcon className="h-4 text-red-600" />
         </div>
       </div>
     </footer>

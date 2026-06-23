@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { ArrowRight, Megaphone } from "lucide-react";
+import Link from "next/link";
 
 import { cn } from "@/lib/utils";
 
@@ -52,7 +52,7 @@ export default function AdvertisingBanner({
               Tu publicidad aquí.
             </h2>
             <p className="max-w-lg text-base leading-7 text-slate-600 md:text-lg">
-              Haz click para conocer más.
+              Haz clic para conocer más.
             </p>
           </div>
         </div>

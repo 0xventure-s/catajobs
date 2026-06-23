@@ -8,6 +8,9 @@ const nextConfig = {
       {
         hostname: "1jedr0gmdjpyvxth.public.blob.vercel-storage.com",
       },
+      {
+        hostname: "i.ytimg.com",
+      },
     ],
   },
 };
