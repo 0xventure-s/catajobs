@@ -1,6 +1,7 @@
 "use server";
 
 import prisma from "@/lib/prisma";
+import { getInitialJobViews } from "@/lib/job-views";
 import { toSlug } from "@/lib/utils";
 import { createJobsSchema } from "@/lib/validation";
 import { put } from "@vercel/blob";
@@ -49,10 +50,10 @@ export async function createJobPosting(formData: FormData) {
       companyLogoUrl,
       locationType,
       location,
+      views: getInitialJobViews(),
       applicationEmail: applicationEmail?.trim(),
       applicationUrl: applicationUrl?.trim(),
       description: description?.trim(),
-     
     },
   });
 

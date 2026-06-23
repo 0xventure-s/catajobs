@@ -2,6 +2,7 @@ import { Job } from "@prisma/client";
 import Image from "next/image";
 import companyLogoPlaceHolder from "@/assets/company-logo-placeholder.png";
 import { Briefcase, Clock, Eye, Globe2, MapPin } from "lucide-react";
+import { getFallbackJobViews } from "@/lib/job-views";
 import { relativeDate } from "@/lib/utils";
 import Badge from "./Badge";
 
@@ -11,16 +12,13 @@ export type JobListProp = {
   };
 };
 
-const DEFAULT_VIEW_COUNT = 10;
-
-function formatViews(views: number | null | undefined) {
-  const count = views ?? DEFAULT_VIEW_COUNT;
-
+function formatViews(count: number) {
   return count === 1 ? "1 vista" : `${count} vistas`;
 }
 
 export default function JobList({
   job: {
+    slug,
     title,
     companyName,
     type,
@@ -31,7 +29,7 @@ export default function JobList({
     createdAt,
   },
 }: JobListProp) {
-  const viewLabel = formatViews(views);
+  const viewLabel = formatViews(views ?? getFallbackJobViews(slug));
 
   return (
     <article className="flex gap-4 rounded-lg border p-5 transition-colors hover:bg-muted/60">

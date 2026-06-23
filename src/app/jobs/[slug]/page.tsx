@@ -69,22 +69,21 @@ export default async function Page({ params: { slug } }: PageProps) {
 
   return (
     <main className="m-auto my-10 max-w-5xl px-3">
-      {/* Nueva sección de información de aplicación */}
-      <section className="mb-10 bg-blue-50 p-6 rounded-lg shadow-md">
-        <h2 className="text-2xl font-bold mb-4 text-blue-800">
+      <section className="mb-10 rounded-lg bg-blue-50 p-6 shadow-md">
+        <h2 className="mb-4 text-2xl font-bold text-blue-800">
           ¿Cómo aplicar?
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
           <div>
-            <h3 className="text-lg font-semibold mb-2 text-blue-700">
-              Numero de Telefono
+            <h3 className="mb-2 text-lg font-semibold text-blue-700">
+              Teléfono
             </h3>
             {applicationUrl ? (
               <a
                 href={applicationUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-blue-600 hover:underline break-all"
+                className="break-all text-blue-600 hover:underline"
               >
                 {applicationUrl}
               </a>
@@ -93,13 +92,13 @@ export default async function Page({ params: { slug } }: PageProps) {
             )}
           </div>
           <div>
-            <h3 className="text-lg font-semibold mb-2 text-blue-700">
+            <h3 className="mb-2 text-lg font-semibold text-blue-700">
               Ubicación o email
             </h3>
             {applicationEmail ? (
               <a
                 href={`mailto:${applicationEmail}`}
-                className="text-blue-600 hover:underline break-all"
+                className="break-all text-blue-600 hover:underline"
               >
                 {applicationEmail}
               </a>
@@ -110,7 +109,6 @@ export default async function Page({ params: { slug } }: PageProps) {
         </div>
       </section>
 
-      {/* Contenido existente */}
       <div className="flex flex-col items-center gap-5 md:flex-row md:items-start">
         <JobDetails job={job} />
       </div>

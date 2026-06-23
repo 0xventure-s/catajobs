@@ -125,7 +125,7 @@ function Pagination({
         )}
       >
         <ArrowLeft size={16} />
-        Página Anterior
+        Página anterior
       </Link>
       <span className="font-semibold">
         Página {currentPage} de {totalPages}
@@ -137,7 +137,7 @@ function Pagination({
           currentPage >= totalPages && "invisible",
         )}
       >
-        Página Siguiente
+        Página siguiente
         <ArrowRight size={16} />
       </Link>
     </div>

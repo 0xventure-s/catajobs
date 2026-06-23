@@ -28,7 +28,7 @@ model Job {
   applicationEmail String?
   applicationUrl   String?
   companyLogoUrl   String?
-  views            Int      @default(10)
+  views            Int      @default(dbgenerated("floor(random() * 20 + 10)::int"))
   approved         Boolean  @default(false)
   createdAt        DateTime @default(now())
   updatedAt        DateTime @updatedAt
