@@ -18,7 +18,7 @@ datasource db {
 model Job {
   id               Int      @id @default(autoincrement())
   slug             String   @unique
-  title           String
+  title            String
   type             String
   locationType     String
   location         String?
@@ -28,6 +28,7 @@ model Job {
   applicationEmail String?
   applicationUrl   String?
   companyLogoUrl   String?
+  views            Int      @default(10)
   approved         Boolean  @default(false)
   createdAt        DateTime @default(now())
   updatedAt        DateTime @updatedAt

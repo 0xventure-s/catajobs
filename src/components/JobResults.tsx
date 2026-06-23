@@ -6,6 +6,7 @@ import { Prisma } from "@prisma/client";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { ArrowLeft, ArrowRight } from "lucide-react";
+import { unstable_noStore as noStore } from "next/cache";
 
 type JobResultProps = {
   filterValues: jobFilterValue;
@@ -16,6 +17,8 @@ export default async function JobResults({
   filterValues,
   page = 1,
 }: JobResultProps) {
+  noStore();
+
   const { q, type, location, remote } = filterValues;
 
   const jobPerPage = 10;
@@ -64,13 +67,20 @@ export default async function JobResults({
   return (
     <div className="grow space-y-4">
       {jobs.map((job) => (
-        <Link key={job.id} href={`/jobs/${job.slug}`} className="block">
+        <Link
+          key={job.id}
+          href={`/jobs/${job.slug}`}
+          prefetch={false}
+          className="block"
+        >
           <JobList job={job} />
         </Link>
       ))}
 
       {jobs.length === 0 && (
-        <p className="m-auto text-center">No se encontraron trabajos. Borra el filtro</p>
+        <p className="m-auto text-center">
+          No se encontraron trabajos. Borra el filtro
+        </p>
       )}
 
       <Pagination
@@ -111,7 +121,7 @@ function Pagination({
         href={generatePageLink(currentPage - 1)}
         className={cn(
           "flex items-center gap-2 font-semibold",
-          currentPage <= 1 && "invisible"
+          currentPage <= 1 && "invisible",
         )}
       >
         <ArrowLeft size={16} />
@@ -124,7 +134,7 @@ function Pagination({
         href={generatePageLink(currentPage + 1)}
         className={cn(
           "flex items-center gap-2 font-semibold",
-          currentPage >= totalPages && "invisible"
+          currentPage >= totalPages && "invisible",
         )}
       >
         Página Siguiente

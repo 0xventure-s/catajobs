@@ -1,27 +1,40 @@
 import { Job } from "@prisma/client";
 import Image from "next/image";
 import companyLogoPlaceHolder from "@/assets/company-logo-placeholder.png";
-import { Banknote, Briefcase, Clock, Globe2, MapPin } from "lucide-react";
+import { Briefcase, Clock, Eye, Globe2, MapPin } from "lucide-react";
 import { relativeDate } from "@/lib/utils";
 import Badge from "./Badge";
 
 export type JobListProp = {
-  job: Job;
+  job: Job & {
+    views?: number | null;
+  };
 };
+
+const DEFAULT_VIEW_COUNT = 10;
+
+function formatViews(views: number | null | undefined) {
+  const count = views ?? DEFAULT_VIEW_COUNT;
+
+  return count === 1 ? "1 vista" : `${count} vistas`;
+}
+
 export default function JobList({
   job: {
     title,
     companyName,
     type,
     locationType,
-    location : JobLocation,
-    salary,
+    location: JobLocation,
     companyLogoUrl,
+    views,
     createdAt,
   },
 }: JobListProp) {
+  const viewLabel = formatViews(views);
+
   return (
-    <article className="flex gap-4 border rounded-lg p-5 hover:bg-muted/60">
+    <article className="flex gap-4 rounded-lg border p-5 transition-colors hover:bg-muted/60">
       <Image
         src={companyLogoUrl || companyLogoPlaceHolder}
         alt={`${companyName} logo`}
@@ -54,15 +67,25 @@ export default function JobList({
             <Clock size={16} className="shrink-0" />
             {relativeDate(createdAt)}
           </p>
+          <p className="flex items-center gap-1.5 sm:hidden">
+            <Eye size={16} className="shrink-0" />
+            {viewLabel}
+          </p>
         </div>
       </div>
 
-      <div className="hidden sm:flex flex-col shrink-0 items-end justify-between">
+      <div className="hidden shrink-0 flex-col items-end justify-between gap-4 sm:flex">
         <Badge>{type}</Badge>
-        <span className="flex items-center gap-1.5 text-muted-foreground">
-          <Clock size={16} />
-          {relativeDate(createdAt)}
-        </span>
+        <div className="space-y-1 text-sm text-muted-foreground">
+          <span className="flex items-center justify-end gap-1.5">
+            <Eye size={16} />
+            {viewLabel}
+          </span>
+          <span className="flex items-center justify-end gap-1.5">
+            <Clock size={16} />
+            {relativeDate(createdAt)}
+          </span>
+        </div>
       </div>
     </article>
   );
