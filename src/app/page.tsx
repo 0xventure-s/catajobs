@@ -11,13 +11,24 @@ import Link from "next/link";
 
 type PageProps = {
   searchParams?: {
-    q?: string;
-    type?: string;
-    location?: string;
-    remote?: string;
-    page?: string;
+    q?: string | string[];
+    type?: string | string[];
+    location?: string | string[];
+    remote?: string | string[];
+    page?: string | string[];
   };
 };
+
+function getSearchParamValue(value?: string | string[]) {
+  return Array.isArray(value) ? value[0] : value;
+}
+
+function getPageNumber(value?: string | string[]) {
+  const page = getSearchParamValue(value);
+  const pageNumber = page ? Number(page) : 1;
+
+  return Number.isSafeInteger(pageNumber) && pageNumber > 0 ? pageNumber : 1;
+}
 
 function getTitle({ q, type, location, remote }: jobFilterValue) {
   let titleParts = [];
@@ -46,7 +57,10 @@ function getCurrentDate() {
 }
 
 export default async function Home({ searchParams = {} }: PageProps) {
-  const { q, type, location, remote, page } = searchParams;
+  const q = getSearchParamValue(searchParams.q);
+  const type = getSearchParamValue(searchParams.type);
+  const location = getSearchParamValue(searchParams.location);
+  const remote = getSearchParamValue(searchParams.remote);
 
   const filterValues: jobFilterValue = {
     q: q || undefined,
@@ -105,7 +119,7 @@ export default async function Home({ searchParams = {} }: PageProps) {
         <JobFilter defaultValue={filterValues} />
         <JobResults
           filterValues={filterValues}
-          page={page ? parseInt(page) : undefined}
+          page={getPageNumber(searchParams.page)}
         />
       </section>
       <AdvertisingBanner variant="inline" />

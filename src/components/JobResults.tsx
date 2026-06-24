@@ -22,7 +22,8 @@ export default async function JobResults({
   const { q, type, location, remote } = filterValues;
 
   const jobPerPage = 10;
-  const skip = (page - 1) * jobPerPage;
+  const currentPage = Number.isSafeInteger(page) && page > 0 ? page : 1;
+  const skip = (currentPage - 1) * jobPerPage;
 
   const searchString = q
     ?.split(" ")
@@ -84,7 +85,7 @@ export default async function JobResults({
       )}
 
       <Pagination
-        currentPage={page}
+        currentPage={currentPage}
         totalPages={totalPages}
         filterValues={filterValues}
       />
