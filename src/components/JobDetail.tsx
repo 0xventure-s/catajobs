@@ -1,15 +1,16 @@
 import { relativeDate } from "@/lib/utils";
-import { Job } from "@prisma/client"
+import { Job } from "@prisma/client";
 import { Briefcase, Clock, Globe2, MapPin } from "lucide-react";
-import Image from "next/image"
-import Link from "next/link";
+import Image from "next/image";
+import { DEFAULT_COMPANY_LOGO_URL } from "@/lib/company-logo";
 import Markdown from "./Markdown";
 
 export type JobPageProps = {
-    job:Job;
-}
+  job: Job;
+};
 
-export default function JobDetail({job:{
+export default function JobDetail({
+  job: {
     title,
     location,
     description,
@@ -20,71 +21,63 @@ export default function JobDetail({job:{
     locationType,
     salary,
     companyLogoUrl,
-    createdAt
-}}:JobPageProps) {
+    createdAt,
+  },
+}: JobPageProps) {
   return (
-    <section className="w-full grow space-y-5"> 
-    <div className="flex items-center gap-3">
-        {companyLogoUrl && (
-            <Image
-            src={companyLogoUrl}
-            alt="Logo de la empresa"
-            width={100}
-            height={100}
-            className="rounded-xl"
-            />
-        )}
+    <section className="w-full grow space-y-5">
+      <div className="flex items-center gap-3">
+        <Image
+          src={companyLogoUrl || DEFAULT_COMPANY_LOGO_URL}
+          alt="Logo de la empresa"
+          width={100}
+          height={100}
+          className="rounded-xl"
+          unoptimized
+        />
 
         <div>
-
           <div>
             <h1 className="text-xl font-bold">{title}</h1>
             <p className="font-semibold">
-  {applicationUrl ? (
-    <a href={applicationUrl} target="_blank" rel="noopener noreferrer">
-      {companyName}
-    </a>
-  ) : (
-    <span>{companyName}</span>
-  )}
-</p>
+              {applicationUrl ? (
+                <a
+                  href={applicationUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {companyName}
+                </a>
+              ) : (
+                <span>{companyName}</span>
+              )}
+            </p>
           </div>
 
-            <div className="text-muted-foreground">
+          <div className="text-muted-foreground">
+            <p className="flex items-center gap-1.5 ">
+              <Briefcase size={16} className="shrink-0" />
+              {type}
+            </p>
+            <p className="flex items-center gap-1.5 ">
+              <MapPin size={16} className="shrink-0" />
+              {locationType}
+            </p>
 
             <p className="flex items-center gap-1.5 ">
-            <Briefcase size={16} className="shrink-0" />
-            {type}
-          </p>
-          <p className="flex items-center gap-1.5 ">
-            <MapPin size={16} className="shrink-0" />
-            {locationType}
-          </p>
-
-          <p className="flex items-center gap-1.5 ">
-            <Globe2 size={16} className="shrink-0" />
-            {location || "Catamarca"}
-          </p>
-          <p className="flex items-center gap-1.5">
-            <Clock size={16} className="shrink-0" />
-            {relativeDate(createdAt)}
-          </p>
-
-            </div>
-
-
-
+              <Globe2 size={16} className="shrink-0" />
+              {location || "Catamarca"}
+            </p>
+            <p className="flex items-center gap-1.5">
+              <Clock size={16} className="shrink-0" />
+              {relativeDate(createdAt)}
+            </p>
+          </div>
         </div>
 
-        <div>
-        
-        </div>
-
-    </div>
-    <div>
-    {description && <Markdown>{description}</Markdown>}
-    </div>
-    
+        <div></div>
+      </div>
+      <div>{description && <Markdown>{description}</Markdown>}</div>
     </section>
-  )
+  );
 }

@@ -1,8 +1,8 @@
 import { Job } from "@prisma/client";
 import Image from "next/image";
-import companyLogoPlaceHolder from "@/assets/company-logo-placeholder.png";
 import { Briefcase, Clock, Eye, Globe2, MapPin } from "lucide-react";
 import { getFallbackJobViews } from "@/lib/job-views";
+import { DEFAULT_COMPANY_LOGO_URL } from "@/lib/company-logo";
 import { relativeDate } from "@/lib/utils";
 import Badge from "./Badge";
 
@@ -34,11 +34,12 @@ export default function JobList({
   return (
     <article className="flex gap-4 rounded-lg border p-5 transition-colors hover:bg-muted/60">
       <Image
-        src={companyLogoUrl || companyLogoPlaceHolder}
+        src={companyLogoUrl || DEFAULT_COMPANY_LOGO_URL}
         alt={`${companyName} logo`}
         width={100}
         height={100}
-        className="rounded-lg self-center"
+        className="self-center rounded-lg"
+        unoptimized
       />
 
       <div className="flex-grow space-y-3">

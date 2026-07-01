@@ -3,6 +3,7 @@
 import { auth } from "@/auth";
 import prisma from "@/lib/prisma";
 import { isAdminSession } from "@/lib/admin";
+import { isUploadedCompanyLogoUrl } from "@/lib/company-logo";
 import { del } from "@vercel/blob";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
@@ -51,7 +52,7 @@ export async function deleteJob(prevState: FormState, formData: FormData) {
       where: { id: jobId },
     });
 
-    if (job?.companyLogoUrl) {
+    if (isUploadedCompanyLogoUrl(job?.companyLogoUrl)) {
       await del(job.companyLogoUrl);
     }
 

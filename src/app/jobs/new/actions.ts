@@ -1,6 +1,7 @@
 "use server";
 
 import prisma from "@/lib/prisma";
+import { DEFAULT_COMPANY_LOGO_URL } from "@/lib/company-logo";
 import { getInitialJobViews } from "@/lib/job-views";
 import { toSlug } from "@/lib/utils";
 import { createJobsSchema } from "@/lib/validation";
@@ -26,7 +27,7 @@ export async function createJobPosting(formData: FormData) {
 
   const slug = `${toSlug(tittle)}-${nanoid(10)}`;
 
-  let companyLogoUrl: string | undefined = undefined;
+  let companyLogoUrl = DEFAULT_COMPANY_LOGO_URL;
 
   if (companyLogo) {
     const blob = await put(
